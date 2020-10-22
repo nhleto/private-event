@@ -1,15 +1,33 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>PrivateEvents</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<html class= 'html'>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>PrivateEvents</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-  <body>
-    <%= yield %>
-  </body>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+  <header class="navbar has-background-danger-light">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <h1 class="title is-h1" id='private-events'>Private Events</h1>
+      </div>
+    </div>
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <button class="button is-primary is-light"><%= link_to 'Sign Up', new_user_path  %></button>
+      </div>
+      <div class="navbar-item">
+        <button class= 'button is-primary is-light' id='private-events'><%= link_to 'Home', root_path %></button>
+      </div>
+    </div>
+  </header>
+
+  <%= yield %>
+</body>
+
 </html>
