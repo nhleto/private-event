@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Part of The Odin Project Curriculum. The goal of the project is to create a website where users can create events and send invitations to friends. These events take place at specific times and in specific locations.
 
-Things you may want to cover:
+  -A user can create events
+  -A user can attend many events
+  -An event can be attended by many users
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Active Record Assosciations are the main focus of this project.
