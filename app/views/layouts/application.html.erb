@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class= 'html'>
+<html class='html'>
 
 <head>
   <title>PrivateEvents</title>
@@ -19,13 +19,32 @@
     </div>
     <div class="navbar-end">
       <div class="navbar-item">
-        <button class="button is-primary is-light"><%= link_to 'Sign Up', new_user_path  %></button>
+        <% if user_logged_in? %>
+        <div class="navbar-item">
+          <p class='title is-4'><%= current_user.name %></p>
+        </div>
+        <button class="button is-primary is-light"><%= link_to 'Sign Out', logout_path %></button>
+        <% else %>
+        <button class="button is-primary is-light"><%= link_to 'Log In', login_path  %></button>
+        <% end %>
+
       </div>
       <div class="navbar-item">
-        <button class= 'button is-primary is-light' id='private-events'><%= link_to 'Home', root_path %></button>
+        <button class='button is-primary is-light' id='private-events'><%= link_to 'Home', root_path %></button>
       </div>
     </div>
   </header>
+
+  <% if flash[:notice] %>
+  <div class="notification is-primary">
+    <p class="notice"><%= notice %></p>
+  </div>
+  <% end %>
+  <% if flash[:alert] %>
+    <div class="notification is-danger">
+      <p class="notice"><%= alert %></p>
+    </div>
+  <% end %>
 
   <%= yield %>
 </body>
