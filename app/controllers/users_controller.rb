@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
-
   def index
     @users = User.all
-    @user = User.find(current_user.id)
+    return unless user_logged_in?
+
+    redirect_to user_path(current_user.id)
   end
 
   def new
@@ -13,7 +14,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to root_path
+      redirect_to user_path
     else
       render 'new'
     end
@@ -23,13 +24,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    if @user.nil?
-      redirect_to users_path
-    else
-      @user = User.find(current_user.id)
-      redirect_to root_path
-    end
-
+    @user = User.find(current_user.id)
   end
 
   private

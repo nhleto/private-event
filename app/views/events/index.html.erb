@@ -1,7 +1,6 @@
 <div class="section">
   <div class="container">
 
-
     <% @event.each do |evnt| %>
     <div class="box mt-5">
       <div class="content">
@@ -10,10 +9,12 @@
         <p class='has-text-centered'><strong>Date: </strong><%= evnt.date %></p>
         <article class="post"><%= evnt.description %></article>
         <nav class="level">
-          <div class="level-left"><%= link_to 'Event', user_events_path(@user, evnt) %></div>
+          <div class="level-left"><%= link_to 'Event', user_event_path(@user, evnt) %></div>
         </nav>
       </div>
-      <% end %>
     </div>
+    <% end %>
+
   </div>
+</div>
 </div>

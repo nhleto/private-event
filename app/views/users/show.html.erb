@@ -1,27 +1,18 @@
-  <div class="section">
-    <div class="container">
-      <div class="box">
-        <div class="media">
-          <div class="media-content">
-            <h1 class="title is-h1 has-text-centered">Welcome to the Root</h1>
-          </div>
-        </div>
-      </div>
-      <div class="column">
-        <label class="label">Created Events:</label>
-        <% @user.created_events.each do |event| %>
-        <div class="box">
-          <div class="content">
-            <h2 class="title is-2 has-text-centered"><%= event.name %></h2>
-            <p class='has-text-centered'><strong>Hosted by: </strong><%= event.creator.name %></p>
-            <p class='has-text-centered'><strong>Date: </strong><%= event.date %></p>
-            <article class="post"><%= event.description %></article>
-            <nav class="level">
-              <div class="level-left"><%= link_to 'Event', user_events_path(@user, event) %></div>
-            </nav>
-            <% end %>
-          </div>
-        </div>
-      </div>
+<div class="column">
+  <label class="label">Created Events:</label>
+  <% @user.created_events.each do |event| %>
+  <div class="box">
+    <div class="content">
+      <h2 class="title is-2 has-text-centered"><%= event.name %></h2>
+      <p class='has-text-centered'><strong>Hosted by: </strong><%= event.creator.name %></p>
+      <p class='has-text-centered'><strong>Date: </strong><%= event.date %></p>
+      <article class="post"><%= event.description %></article>
+      <nav class="level">
+        <div class="level-left"><%= link_to 'Event', user_events_path(@user, event) %></div>
+      </nav>
+      <% end %>
     </div>
   </div>
+</div>
+</div>
+</div>
