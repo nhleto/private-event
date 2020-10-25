@@ -6,6 +6,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @user = User.find(session[:user_id])
   end
 
   def new
@@ -14,19 +15,28 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new
+    @event = current_user.created_events.build(event_params)
+    @user = User.find(session[:user_id])
     if @event.save
       flash[:notice] = 'New Event Created!'
+      redirect_to user_events_path
     else
       flash[:alert] = 'Failed to Create Event...'
       render 'new'
     end
   end
 
+  def destroy
+    @event = Event.find(params[:id])
+    return unless @event.destroy
+
+    flash[:notice] = 'Event was successfully destroyed'
+    redirect_to user_path
+  end
+
   private
 
   def event_params
-    params.require(:user).permit(:name, :description, :date)
+    params.require(:event).permit(:name, :description, :date)
   end
-
 end

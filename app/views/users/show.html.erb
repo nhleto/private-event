@@ -11,9 +11,15 @@
       <p class='has-text-centered'><strong>Date: </strong><%= event.date %></p>
       <article class="post"><%= event.description %></article>
       <nav class="level">
-        <div class="level-left"><%= link_to 'Event', user_events_path(@user, event) %></div>
-      </nav>
+        <div class="level-left">
+          <%= link_to 'Event', user_event_path(@user, event), class: 'level-item' %>
+          <%= link_to user_event_path(@user, event), method: :delete, class: 'level-item' do %>
+          <span class="icon"><i class='fa fa-trash-o' aria-hidden='true'></i></span>
+          <% end %>
+        </div>
     </div>
+    </nav>
   </div>
-  <% end %>
+</div>
+<% end %>
 </div>
