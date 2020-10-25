@@ -1,5 +1,8 @@
 <div class="column">
-  <label class="label">Created Events:</label>
+  <div class="has-text-centered mb-4">
+    <button class="button is-warning is-light is-large"><%= link_to 'New Event', new_user_event_path(@user, @event) %></button>
+  </div>
+  <h4 class="title is-4 has-text-centered">Created Events:</h4>
   <% @user.created_events.each do |event| %>
   <div class="box">
     <div class="content">
@@ -10,9 +13,7 @@
       <nav class="level">
         <div class="level-left"><%= link_to 'Event', user_events_path(@user, event) %></div>
       </nav>
-      <% end %>
     </div>
   </div>
-</div>
-</div>
+  <% end %>
 </div>
