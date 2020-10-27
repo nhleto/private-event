@@ -6,7 +6,7 @@
           <div class="content">
             <h2 class="title is-2 has-text-centered"><%= @event.name %></h2>
             <p class='mb-1 has-text-centered'><strong>Hosted by: </strong><%= @event.creator.name %></p>
-            <p class='has-text-centered mb-1'><strong>Date: </strong><%= @event.date %></p>
+            <p class='has-text-centered mb-1'><strong>Date: </strong><%= @event.date.strftime("%m/%d/%Y") %></p>
             <article class="post"><%= @event.description %></article>
             <strong>Attendees: </strong>
             <%= @event.attendees.map(&:name).join(", ") %>
