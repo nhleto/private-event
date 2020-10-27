@@ -11,6 +11,11 @@
             <strong>Attendees: </strong>
             <%= @event.attendees.map(&:name).join(", ") %>
           </div>
+          <div class="container has-text-centered">
+            <button class="button is-warning is-light is-large">
+              <%= link_to 'Invite a Friend!', new_invitation_path %>
+            </button>
+          </div>
         </div>
       </div>
     </div>
