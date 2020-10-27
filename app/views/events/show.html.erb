@@ -8,7 +8,8 @@
             <p class='mb-1 has-text-centered'><strong>Hosted by: </strong><%= @event.creator.name %></p>
             <p class='has-text-centered mb-1'><strong>Date: </strong><%= @event.date %></p>
             <article class="post"><%= @event.description %></article>
-            <p><%= @event.attendees.last.name %></p> 
+            <strong>Attendees: </strong>
+            <%= @event.attendees.map(&:name).join(", ") %>
           </div>
         </div>
       </div>

@@ -1,25 +1,42 @@
-<div class="column">
-  <div class="has-text-centered mb-4">
-    <button class="button is-warning is-light is-large"><%= link_to 'New Event', new_user_event_path(@user, @event) %></button>
-  </div>
-  <h4 class="title is-4 has-text-centered">Created Events:</h4>
-  <% @user.created_events.each do |event| %>
-  <div class="box">
-    <div class="content">
-      <h2 class="title is-2 has-text-centered"><%= event.name %></h2>
-      <p class='has-text-centered mb-1'><strong>Hosted by: </strong><%= event.creator.name %></p>
-      <p class='has-text-centered'><strong>Date: </strong><%= event.date %></p>
-      <article class="post"><%= event.description %></article>
-      <nav class="level">
-        <div class="level-left">
-          <%= link_to 'Event', user_event_path(@user, event), class: 'level-item' %>
-          <%= link_to user_event_path(@user, event), method: :delete, class: 'level-item' do %>
-          <span class="icon"><i class='fa fa-trash-o' aria-hidden='true'></i></span>
-          <% end %>
-        </div>
+<div class="section">
+  <div class="column">
+    <div class="has-text-centered mb-4">
+      <button class="button is-warning is-light is-large"><%= link_to 'New Event', new_user_event_path(@user, @event) %></button>
     </div>
-    </nav>
+    <h4 class="title is-4 has-text-centered">Created Events:</h4>
+    <% @user.created_events.each do |event| %>
+    <div class="box">
+      <div class="content">
+        <h2 class="title is-2 has-text-centered"><%= event.name %></h2>
+        <p class='has-text-centered mb-1'><strong>Hosted by: </strong><%= event.creator.name %></p>
+        <p class='has-text-centered'><strong>Date: </strong><%= event.date %></p>
+        <article class="post"><%= event.description %></article>
+        <nav class="level">
+          <div class="level-left">
+            <%= link_to 'Event', user_event_path(@user, event), class: 'level-item' %>
+            <%= link_to user_event_path(@user, event), method: :delete, class: 'level-item' do %>
+            <span class="icon"><i class='fa fa-trash-o' aria-hidden='true'></i></span>
+            <% end %>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <% end %>
   </div>
 </div>
-<% end %>
+<div class="section">
+  <h4 class="title is-4 has-text-centered">Events to Attend:</h4>
+
+    <% @user.attended_events.each do |event| %>
+        <div class="box">
+          <div class="content">
+            <h2 class="title is-2 has-text-centered"><%= event.name %></h2>
+            <p class='has-text-centered mb-1'><strong>Hosted By: </strong><%= event.creator.name %></p>
+            <p class='has-text-centered mb-1'><strong>Date: </strong><%= event.date %></p>
+            <article class="post"><%= event.description %></article>
+          </div>
+        </div>
+    <% end %>
 </div>
+
+
