@@ -1,18 +1,38 @@
 <div class="section">
-  <div class="container">
-    <h2 class="title is-2 has-text-centered">All Events:</h2>
-    <% @event.each do |evnt| %>
-    <div class="box mt-5">
-      <div class="content">
-        <h2 class="title is-2 has-text-centered"><%= evnt.name %></h2>
-        <p class='has-text-centered mb-1'><strong>Hosted by: </strong><%= evnt.creator.name %></p>
-        <p class='has-text-centered'><strong>Date: </strong><%= evnt.date.strftime("%m/%d/%Y") %></p>
-        <article class="post"><%= evnt.description %></article>
-        <nav class="level">
-          <div class="level-left"><%= link_to 'Event', user_event_path(@user, evnt) %></div>
-        </nav>
+  <div class="columns">
+    <div class="column is-half">
+      <div class="container">
+        <h2 class="title is-2 has-text-centered">Upcoming Events:</h2>
+        <% @event.upcoming_events.each do |evnt| %>
+        <div class="box mt-5">
+          <div class="content">
+            <h2 class="title is-2 has-text-centered"><%= evnt.name %></h2>
+            <p class='has-text-centered mb-1'><strong>Hosted by: </strong><%= evnt.creator.name %></p>
+            <p class='has-text-centered'><strong>Date: </strong><%= evnt.date.strftime("%m/%d/%Y") %></p>
+            <article class="post"><%= evnt.description %></article>
+            <nav class="level">
+              <div class="level-left"><%= link_to 'Event', user_event_path(@user, evnt) %></div>
+            </nav>
+          </div>
+        </div>
+        <% end %>
       </div>
     </div>
-    <% end %>
+    <div class="column is-half">
+      <h2 class="title is-2 has-text-centered">Past Events:</h2>
+      <% @event.past_events.each do |evnt| %>
+      <div class="box mt-5">
+        <div class="content">
+          <h2 class="title is-2 has-text-centered"><%= evnt.name %></h2>
+          <p class='has-text-centered mb-1'><strong>Hosted by: </strong><%= evnt.creator.name %></p>
+          <p class='has-text-centered'><strong>Date: </strong><%= evnt.date.strftime("%m/%d/%Y") %></p>
+          <article class="post"><%= evnt.description %></article>
+          <nav class="level">
+            <div class="level-left"><%= link_to 'Event', user_event_path(@user, evnt) %></div>
+          </nav>
+        </div>
+      </div>
+      <% end %>
+    </div>
   </div>
 </div>

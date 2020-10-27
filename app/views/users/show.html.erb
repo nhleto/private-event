@@ -29,7 +29,7 @@
       <div class="column is-one-third">
         <h4 class="title is-4 has-text-centered">Upcoming Events:</h4>
 
-        <% @user.attended_events.each do |event| %>
+        <% @user.attended_events.upcoming_events.each do |event| %>
         <div class="box">
           <div class="content">
             <h2 class="title is-2 has-text-centered"><%= event.name %></h2>
@@ -42,14 +42,17 @@
       </div>
 
       <div class="column is-one-third">
-        <h4 class="title is-4">Previously Attended Events:</h4>
-          <% @user.attended_events.each do |event| %>
-            <div class="box">
-              <div class="content">
-                <p>Place holder</p>
-              </div>
-            </div>
-          <% end %>
+        <h4 class="title is-4 has-text-centered">Previously Attended Events:</h4>
+        <% @user.attended_events.past_events.each do |event| %>
+        <div class="box">
+          <div class="content">
+            <h2 class="title is-2 has-text-centered"><%= event.name %></h2>
+            <p class='has-text-centered mb-1'><strong>Hosted By: </strong><%= event.creator.name %></p>
+            <p class='has-text-centered mb-1'><strong>Date: </strong><%= event.date.strftime("%m/%d/%Y") %></p>
+            <article class="post"><%= event.description %></article>
+          </div>
+        </div>
+        <% end %>
       </div>
 
     </div>
