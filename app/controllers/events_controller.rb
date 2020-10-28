@@ -13,6 +13,7 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
     @user = User.find(session[:user_id])
+    @users = User.all
   end
 
   def create
