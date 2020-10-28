@@ -7,6 +7,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @user = User.find(session[:user_id])
+    @event.invitations.build
   end
 
   def new
